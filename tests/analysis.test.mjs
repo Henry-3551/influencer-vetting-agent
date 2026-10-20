@@ -3,3 +3,6 @@ test('engagement calculation',()=>assert.equal(engagementRate(1000,[{likes:100,c
 test('rejects missing followers',()=>assert.throws(()=>engagementRate(0,[{likes:1,comments:1}])));
 test('rejects invalid metrics',()=>assert.throws(()=>engagementRate(100,[{likes:-1,comments:0}])));
 test('does not assert fraud',()=>assert.equal(assess(100,[{likes:1,comments:0}]).risk,'undetermined'));
+test('rejects malformed post records',()=>assert.throws(()=>engagementRate(100,[null])));
+test('rejects fractional or noninteger metrics',()=>assert.throws(()=>engagementRate(100.5,[{likes:1,comments:0}])));
+test('permits zero engagement without implying fraud',()=>assert.equal(assess(100,[{likes:0,comments:0}]).risk,'undetermined'));
