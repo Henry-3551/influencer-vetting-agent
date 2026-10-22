@@ -4,7 +4,7 @@
 
 On 2026-10-22, an unpaid request to `instagram.profile` returned HTTP 402 with `x402Version: 1`, a 5000-atomic-unit charge (indicatively $0.005 for a 6-decimal USD stablecoin), and offers on Celo mainnet (USDC, USDT, USAT) plus a Celo Sepolia sandbox offer.
 
-**Critical caution:** The pasted response contains multiple abbreviated-looking `asset` and `payTo` addresses. These are not usable payment addresses as pasted. Do not manually transfer money or construct a payment from them. Determine whether this was an output-copying issue by obtaining a fresh unpaid response and verifying address format. Token/recipient authenticity still requires using the documented official client rather than trusting a shape check.
+**Clarification (from Henry):** The initial shared response was intentionally redacted because the public addresses were mistaken for secrets. Henry subsequently shared the full addresses; the address formats are valid (0x + 40 hexadecimal characters). No evidence of a malformed gateway response remains. The USDC asset address matches Circle's published Celo mainnet USDC contract `0xcebA9300f2b948710d2653dD7B07f33A8B32118C`, and the USDT asset matches the Celo token list. Shape and token verification do **not** independently verify the gateway's `payTo` beneficiary or grant payment approval. The read-only validator is retained as defense in depth; do not manually transfer money to the payee.
 
 ## Run a fresh *unpaid* request
 
